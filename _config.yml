@@ -37,6 +37,7 @@ header_pages:
   - index.md
   - research.md
   - cv.md
+  - fish3D.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
