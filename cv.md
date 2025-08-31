@@ -9,6 +9,6 @@ title: CV
   <a href="/Alexandra Weber CV.pdf">Download CV</a>
 </iframe>
 
-<p style="margin-top:1em;">
-  👉 <a href="/Alexandra Weber CV.pdf" download>Click here to download a copy</a>
-</p>
+<!-- <p style="margin-top:1em;">
+    <a href="/Alexandra Weber CV.pdf" download>Click here to download a copy</a>
+</p> -->
