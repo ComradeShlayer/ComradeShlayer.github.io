@@ -14,5 +14,5 @@ title: 3D Fish Model
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-<model-viewer src="/model.glb" alt="3D model" auto-rotate camera-controls style="width:100%; height:600px;">
+<model-viewer src="/Whole Skull (all segments).gltf" alt="3D model" auto-rotate camera-controls style="width:100%; height:600px;">
 </model-viewer>
