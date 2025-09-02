@@ -23,7 +23,9 @@ title: 3D Fish Model
     });
     viewer.LoadModelFromUrlList ([
         'https://comradeshlayer.github.io/skull.gltf'
-    ]);
+    ]).then(() => {
+        viewer.ShowUI();
+    });
     // [
     //     // 'https://raw.githubusercontent.com/kovacsv/Online3DViewer/master/test/testfiles/cube/cube.gltf',
     //     'https://comradeshlayer.github.io/skull.gltf'
