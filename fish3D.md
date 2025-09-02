@@ -4,25 +4,23 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-7
+8
 
 <div id="ov-container" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
 
 <script type="text/javascript" src="o3dv.min.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", () => {
-    OV.Init3DViewerElement(
-      document.getElementById('ov-container'),
-      {
-        backgroundColor : new OV.RGBAColor(255, 255, 255, 255),
-        defaultColor : new OV.RGBAColor(200, 200, 200, 255),
-        ui : {
-          navigation : true,
-          tree : true,
-          properties : true,
-          settings : true
-        }
-      },
+    const viewer = new OV.EmbeddedViewer(document.getElementById('ov-container'), {
+      backgroundColor : new OV.RGBAColor(255, 255, 255, 255),
+      defaultColor : new OV.RGBAColor(200, 200, 200, 255),
+      ui : {
+        navigation : true,
+        tree : true,
+        properties : true,
+        settings : true
+      }
+    });
       [
         'https://raw.githubusercontent.com/kovacsv/Online3DViewer/master/test/testfiles/cube/cube.gltf'
       ]
