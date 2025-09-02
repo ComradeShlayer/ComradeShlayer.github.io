@@ -15,7 +15,7 @@ title: 3D Fish Model
       backgroundColor : new OV.RGBAColor(255, 255, 255, 255) // white background
     });
     viewer.LoadModelFromUrlList ([
-      '/Whole Skull (all segments).gltf'
+      'Whole Skull (all segments).gltf'
     ]);
   });
 </script>
