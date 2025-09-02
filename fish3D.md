@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-9
+10
 
 <div id="ov-container" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
 
@@ -21,10 +21,10 @@ title: 3D Fish Model
         settings : true
       }
     });
-      viewer.load([
+    [
         'https://raw.githubusercontent.com/kovacsv/Online3DViewer/master/test/testfiles/cube/cube.gltf',
         'https://comradeshlayer.github.io/skull.gltf'
-    ]);
+    ];
     // console.log("Viewer script is running");
 });
 </script>
