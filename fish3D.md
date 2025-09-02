@@ -12,7 +12,13 @@ title: 3D Fish Model
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", () => {
     const viewer = new OV.EmbeddedViewer(document.getElementById('ov-container'), {
-      backgroundColor : new OV.RGBAColor(255, 255, 255, 255) // white background
+      backgroundColor : new OV.RGBAColor(255, 255, 255, 255), // white background
+      ui : {
+        navigation : true,  // orbit/pan/zoom controls
+        tree : true,        // model structure tree (for selecting/deselecting parts!)
+        properties : true,  // material/mesh info
+        settings : true     // shading, projections, etc.
+      }
     });
     viewer.LoadModelFromUrlList ([
       'Whole Skull (all segments).gltf'
