@@ -8,21 +8,27 @@ title: 3D Fish Model
 
 <div id="ov-container" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
 
-<script type="text/javascript" src="o3dv.min.js"></script>
+<<script type="text/javascript" src="o3dv.min.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", () => {
-    const viewer = new OV.Init3DViewerElement(document.getElementById('ov-container'), {
-      backgroundColor : new OV.RGBAColor(255, 255, 255, 255), // white background
-      ui : {
-        navigation : true,  // orbit/pan/zoom controls
-        tree : true,        // model structure tree (for selecting/deselecting parts!)
-        properties : true,  // material/mesh info
-        settings : true     // shading, projections, etc.
-      }
-    });
-    viewer.LoadModelFromUrlList ([
-      'Whole Skull (all segments).gltf'
-    ]);
+    // Initialize a full-featured viewer (with UI)
+    OV.Init3DViewerElement(
+      document.getElementById('ov-container'),
+      {
+        backgroundColor : new OV.RGBAColor(255, 255, 255, 255),
+        defaultColor : new OV.RGBAColor(200, 200, 200, 255),
+        ui : {
+          navigation : true,
+          tree : true,
+          properties : true,
+          settings : true
+        }
+      },
+      // Model(s) to load
+      [
+        'Whole Skull (all segments).gltf'
+      ]
+    );
   });
 </script>
 
