@@ -11,7 +11,7 @@ title: 3D Fish Model
 <script type="text/javascript" src="o3dv.min.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", () => {
-    const viewer = new OV.EmbeddedViewer(document.getElementById('ov-container'), {
+    const viewer = new OV.Init3DViewerElement(document.getElementById('ov-container'), {
       backgroundColor : new OV.RGBAColor(255, 255, 255, 255), // white background
       ui : {
         navigation : true,  // orbit/pan/zoom controls
