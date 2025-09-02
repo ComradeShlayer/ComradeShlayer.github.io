@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-2
+3
 
 <div id="ov-container" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
 
@@ -26,7 +26,7 @@ title: 3D Fish Model
       },
       // Model(s) to load
       [
-        'Whole Skull (all segments).gltf'
+        'Whole_Skull.gltf'
       ]
     );
   });
