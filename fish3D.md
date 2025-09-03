@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-3
+4
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
@@ -44,7 +44,8 @@ viewer.addEventListener('load', () => {
   const scene = viewer.model.scene;
 
   function collectBones(obj) {
-    if (obj.name) {
+    if (!obj) return; // safety check
+    if (obj.name && obj.type === "Mesh") {  // only meshes with names
       bones[obj.name] = obj;
 
       // Create checkbox entry
@@ -62,20 +63,23 @@ viewer.addEventListener('load', () => {
       wrapper.appendChild(label);
       boneListDiv.appendChild(wrapper);
 
-      // Store reference
       checkboxes[obj.name] = checkbox;
 
-      // Toggle on change
+      // Toggle visibility
       checkbox.addEventListener('change', () => {
         obj.visible = checkbox.checked;
       });
 
-      // Highlight on label click
+      // Highlight when label clicked
       label.addEventListener('click', () => {
         highlightBone(obj);
       });
     }
-    obj.children.forEach(child => collectBones(child));
+
+    // Recurse if children exist
+    if (obj.children && obj.children.length > 0) {
+      obj.children.forEach(child => collectBones(child));
+    }
   }
 
   collectBones(scene);
