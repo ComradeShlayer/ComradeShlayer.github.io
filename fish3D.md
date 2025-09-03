@@ -3,8 +3,8 @@ layout: default
 title: 3D Fish Model
 ---
 
-# 3D Model Viewer
-6
+# 3D Mdel Viewer
+7
 
 
 <div id="viewer-wrapper">
@@ -21,67 +21,69 @@ title: 3D Fish Model
 <div id="bone-list"></div>
 
 {% raw %}
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  const viewer = document.querySelector('#viewer');
-  const boneListDiv = document.getElementById('bone-list');
-  const searchBox = document.getElementById('search');
-  let bones = [];
+<script type="module">
+const viewer = document.querySelector('#viewer');
+const boneListDiv = document.getElementById('bone-list');
+const searchBox = document.getElementById('search');
+let bones = [];
 
-  async function loadBoneNames() {
-    const response = await fetch(viewer.src);
-    const gltf = await response.json();
+// Function to build the bone list in the sidebar
+function updateBoneList(list) {
+  boneListDiv.innerHTML = "";
+  list.forEach(bone => {
+    const div = document.createElement("div");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = true;
+    checkbox.dataset.name = bone.name;
+    checkbox.addEventListener("change", toggleBone);
 
-    bones = gltf.nodes
-      .map((n, i) => ({ name: n.name || `Node_${i}`, index: i }))
-      .filter(b => b.name && b.name.trim() !== "");
+    const label = document.createElement("label");
+    label.textContent = bone.name;
 
-    console.log("Bones loaded:", bones);
-    updateBoneList(bones);
-  }
+    div.appendChild(checkbox);
+    div.appendChild(label);
+    boneListDiv.appendChild(div);
+  });
+}
 
-  function updateBoneList(list) {
-    boneListDiv.innerHTML = "";
-    list.forEach(bone => {
-      const div = document.createElement("div");
-      const checkbox = document.createElement("input");
-      checkbox.type = "checkbox";
-      checkbox.checked = true;
-      checkbox.dataset.name = bone.name;
-      checkbox.addEventListener("change", toggleBone);
+// Toggle visibility of a bone
+function toggleBone(event) {
+  const boneName = event.target.dataset.name;
+  const checked = event.target.checked;
 
-      const label = document.createElement("label");
-      label.textContent = bone.name;
+  const bone = bones.find(b => b.name === boneName);
+  if (bone) bone.object.visible = checked;
+}
 
-      div.appendChild(checkbox);
-      div.appendChild(label);
-      boneListDiv.appendChild(div);
-    });
-  }
+// Filter bones based on search input
+searchBox.addEventListener("input", () => {
+  const term = searchBox.value.toLowerCase();
+  const filtered = bones.filter(b => b.name.toLowerCase().includes(term));
+  updateBoneList(filtered);
+});
 
-  searchBox.addEventListener("input", () => {
-    const term = searchBox.value.toLowerCase();
-    const filtered = bones.filter(b => b.name.toLowerCase().includes(term));
-    updateBoneList(filtered);
+// After model loads, traverse scene and collect bones
+viewer.addEventListener('load', () => {
+  console.log("Model loaded, collecting bones...");
+  const scene = viewer.model?.scene;
+  if (!scene) return;
+
+  bones = [];
+  scene.traverse((obj) => {
+    if (obj.name && obj.type !== "Scene") {
+      bones.push({ name: obj.name, object: obj });
+    }
   });
 
-  function toggleBone(event) {
-    const boneName = event.target.dataset.name;
-    const checked = event.target.checked;
-
-    viewer.model.scene.traverse((obj) => {
-      if (obj.name === boneName) {
-        obj.visible = checked;
-      }
-    });
-  }
-
-  viewer.addEventListener('load', () => {
-    console.log("attempt at loading")
-    loadBoneNames();
-  });
+  console.log("Bones loaded:", bones);
+  updateBoneList(bones);
+});
 </script>
 {% endraw %}
+
 
 
 
