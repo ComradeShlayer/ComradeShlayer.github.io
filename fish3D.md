@@ -4,9 +4,87 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-4
+5
 
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<div id="viewer-wrapper">
+  <model-viewer id="viewer" 
+    src="skull.gltf" 
+    alt="Skull model" 
+    camera-controls 
+    auto-rotate 
+    style="width:100%; height:600px;">
+  </model-viewer>
+</div>
+
+<input id="search" type="text" placeholder="Search bones..." style="margin:10px; padding:5px; width:50%;">
+<div id="bone-list"></div>
+
+{% raw %}
+<script type="module">
+  import "@google/model-viewer";
+
+  const viewer = document.querySelector('#viewer');
+  const boneListDiv = document.getElementById('bone-list');
+  const searchBox = document.getElementById('search');
+  let bones = [];
+
+  async function loadBoneNames() {
+    const response = await fetch(viewer.src);
+    const gltf = await response.json();
+
+    bones = gltf.nodes
+      .map((n, i) => ({ name: n.name || `Node_${i}`, index: i }))
+      .filter(b => b.name && b.name.trim() !== "");
+
+    console.log("Bones loaded:", bones);
+    updateBoneList(bones);
+  }
+
+  function updateBoneList(list) {
+    boneListDiv.innerHTML = "";
+    list.forEach(bone => {
+      const div = document.createElement("div");
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.checked = true;
+      checkbox.dataset.name = bone.name;
+      checkbox.addEventListener("change", toggleBone);
+
+      const label = document.createElement("label");
+      label.textContent = bone.name;
+
+      div.appendChild(checkbox);
+      div.appendChild(label);
+      boneListDiv.appendChild(div);
+    });
+  }
+
+  searchBox.addEventListener("input", () => {
+    const term = searchBox.value.toLowerCase();
+    const filtered = bones.filter(b => b.name.toLowerCase().includes(term));
+    updateBoneList(filtered);
+  });
+
+  function toggleBone(event) {
+    const boneName = event.target.dataset.name;
+    const checked = event.target.checked;
+
+    viewer.model.scene.traverse((obj) => {
+      if (obj.name === boneName) {
+        obj.visible = checked;
+      }
+    });
+  }
+
+  viewer.addEventListener('load', () => {
+    loadBoneNames();
+  });
+</script>
+{% endraw %}
+
+
+
+<!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
 
 <model-viewer 
     id="skullViewer" 
