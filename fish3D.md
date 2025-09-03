@@ -77,6 +77,7 @@ title: 3D Fish Model
   }
 
   viewer.addEventListener('load', () => {
+    console.log("attempt at loading")
     loadBoneNames();
   });
 </script>
