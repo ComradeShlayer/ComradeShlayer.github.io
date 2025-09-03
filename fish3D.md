@@ -4,7 +4,8 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-5
+6
+
 
 <div id="viewer-wrapper">
   <model-viewer id="viewer" 
@@ -20,8 +21,7 @@ title: 3D Fish Model
 <div id="bone-list"></div>
 
 {% raw %}
-<script type="module">
-  import "@google/model-viewer";
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 
   const viewer = document.querySelector('#viewer');
   const boneListDiv = document.getElementById('bone-list');
