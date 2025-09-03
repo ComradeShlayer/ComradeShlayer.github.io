@@ -65,22 +65,29 @@ searchBox.addEventListener("input", () => {
   updateBoneList(filtered);
 });
 
-// After model is fully visible, traverse scene and collect bones
-viewer.addEventListener('model-visibility', () => {
-  if (!viewer.model || !viewer.model.scene) return;
+// Wait until model is loaded and traverse scene
+function collectBones() {
+  if (!viewer.model || !viewer.model.scene) {
+    console.log("Model not ready, retrying...");
+    setTimeout(collectBones, 100); // Retry until ready
+    return;
+  }
 
   console.log("Model loaded, collecting bones...");
-
   bones = [];
+
   viewer.model.scene.traverse((obj) => {
-    if (obj.name && obj.type !== "Scene") {
+    if (obj.name && obj.name.trim() !== "" && obj.type !== "Scene") {
       bones.push({ name: obj.name, object: obj });
     }
   });
 
   console.log("Bones loaded:", bones);
   updateBoneList(bones);
-});
+}
+
+// Attach to 'load' event and use fallback
+viewer.addEventListener('load', collectBones);
 </script>
 {% endraw %}
 
