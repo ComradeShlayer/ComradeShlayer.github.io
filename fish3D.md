@@ -71,6 +71,7 @@ viewer.addEventListener('load', () => {
   const scene = viewer.model?.scene;
   if (!scene) return;
 
+  console.log("passed")
   bones = [];
   scene.traverse((obj) => {
     if (obj.name && obj.type !== "Scene") {
