@@ -6,6 +6,8 @@ title: 3D Fish Model
 # 3D Model Viewer
 2
 
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 <model-viewer 
     id="skullViewer" 
     src="https://comradeshlayer.github.io/skull.glb" 
@@ -123,9 +125,9 @@ function highlightBone(bone) {
 
 
 
-<div id="ov-container" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
+<!-- <div id="ov-container" style="width: 100%; height: 600px; border: 1px solid #ccc;"></div>
 
-<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kovacsv/Online3DViewer@master/dist/o3dv.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kovacsv/Online3DViewer@master/dist/o3dv.min.js"></script>
 <script type="text/javascript" src="o3dv.min.js"></script>
 
 <script type="text/javascript">
@@ -151,7 +153,7 @@ function highlightBone(bone) {
     console.log(OV.EmbeddedViewer.prototype);
     console.log("Viewer script is running");
 });
-</script>
+</script> -->
 
 <!-- <iframe 
     src="https://3dviewer.net/#model=https://ComradeShlayer.github.io/Whole Skull (all segments).gltf" 
