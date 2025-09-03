@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Mdel Viewer
-7
+8
 
 
 <div id="viewer-wrapper">
@@ -29,7 +29,7 @@ const boneListDiv = document.getElementById('bone-list');
 const searchBox = document.getElementById('search');
 let bones = [];
 
-// Function to build the bone list in the sidebar
+// Build or update the bone list in the sidebar
 function updateBoneList(list) {
   boneListDiv.innerHTML = "";
   list.forEach(bone => {
@@ -65,15 +65,14 @@ searchBox.addEventListener("input", () => {
   updateBoneList(filtered);
 });
 
-// After model loads, traverse scene and collect bones
-viewer.addEventListener('load', () => {
-  console.log("Model loaded, collecting bones...");
-  const scene = viewer.model?.scene;
-  if (!scene) return;
+// After model is fully visible, traverse scene and collect bones
+viewer.addEventListener('model-visibility', () => {
+  if (!viewer.model || !viewer.model.scene) return;
 
-  console.log("passed")
+  console.log("Model loaded, collecting bones...");
+
   bones = [];
-  scene.traverse((obj) => {
+  viewer.model.scene.traverse((obj) => {
     if (obj.name && obj.type !== "Scene") {
       bones.push({ name: obj.name, object: obj });
     }
@@ -84,7 +83,6 @@ viewer.addEventListener('load', () => {
 });
 </script>
 {% endraw %}
-
 
 
 
