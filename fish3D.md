@@ -4,13 +4,13 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-2
+3
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <model-viewer 
     id="skullViewer" 
-    src="https://comradeshlayer.github.io/skull.glb" 
+    src="https://comradeshlayer.github.io/skull.gltf" 
     camera-controls 
     auto-rotate 
     style="width: 100%; height: 600px; border: 1px solid #ccc;">
@@ -30,7 +30,6 @@ title: 3D Fish Model
 </div>
 
 <script type="module">
-import '@google/model-viewer';
 
 const viewer = document.querySelector('#skullViewer');
 const searchInput = document.querySelector('#boneSearch');
