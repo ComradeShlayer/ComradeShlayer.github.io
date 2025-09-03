@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Mdel Viewer
-8
+9
 
 
 <div id="viewer-wrapper">
@@ -29,7 +29,7 @@ const boneListDiv = document.getElementById('bone-list');
 const searchBox = document.getElementById('search');
 let bones = [];
 
-// Build or update the bone list in the sidebar
+// Update the bone list in the sidebar
 function updateBoneList(list) {
   boneListDiv.innerHTML = "";
   list.forEach(bone => {
@@ -58,39 +58,46 @@ function toggleBone(event) {
   if (bone) bone.object.visible = checked;
 }
 
-// Filter bones based on search input
+// Filter bones by search
 searchBox.addEventListener("input", () => {
   const term = searchBox.value.toLowerCase();
   const filtered = bones.filter(b => b.name.toLowerCase().includes(term));
   updateBoneList(filtered);
 });
 
-// Wait until model is loaded and traverse scene
+// Collect bones after the model is fully ready
 function collectBones() {
-  if (!viewer.model || !viewer.model.scene) {
-    console.log("Model not ready, retrying...");
-    setTimeout(collectBones, 100); // Retry until ready
+  if (!viewer.model) {
+    console.log("Model object not ready yet, retrying...");
+    setTimeout(collectBones, 50);
     return;
   }
 
-  console.log("Model loaded, collecting bones...");
-  bones = [];
-
-  viewer.model.scene.traverse((obj) => {
-    if (obj.name && obj.name.trim() !== "" && obj.type !== "Scene") {
-      bones.push({ name: obj.name, object: obj });
+  // Use a short delay to ensure scene is populated
+  setTimeout(() => {
+    const scene = viewer.model.scene;
+    if (!scene) {
+      console.log("Scene still not ready, retrying...");
+      setTimeout(collectBones, 50);
+      return;
     }
-  });
 
-  console.log("Bones loaded:", bones);
-  updateBoneList(bones);
+    bones = [];
+    scene.traverse((obj) => {
+      if (obj.name && obj.name.trim() !== "" && obj.type !== "Scene") {
+        bones.push({ name: obj.name, object: obj });
+      }
+    });
+
+    console.log("Bones loaded:", bones);
+    updateBoneList(bones);
+  }, 50);
 }
 
-// Attach to 'load' event and use fallback
+// Start collecting bones when model fires 'load'
 viewer.addEventListener('load', collectBones);
 </script>
 {% endraw %}
-
 
 
 
