@@ -14,7 +14,7 @@ title: 3D Fish Model
     min-camera-orbit="auto auto auto"
     max-camera-orbit="auto auto auto"
     min-polar-angle="0deg"
-    max-polar-angle="180deg"
+    max-polar-angle="360deg"
     auto-rotate 
     crossorigin="anonymous"
     style="width:100%; height:600px; background-color: #ccc;">
