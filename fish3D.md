@@ -46,10 +46,23 @@ title: 3D Fish Model
   </div>
 </div>
 
-<!-- Scrollable list -->
+<!-- Scrollable list container -->
 <div id="bone-list"
-     style="max-height:300px; overflow-y:auto; border:1px solid #ccc; padding:5px;">
+     style="max-height:300px; overflow-y:auto; border:1px solid #ccc; padding:5px; width:60%; margin-top:10px;">
 </div>
+
+<style>
+  /* Each bone row is flex so checkbox + label stay on one line */
+  #bone-list .bone-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  #bone-list label {
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+</style>
 
 <script type="module">
 const viewer = document.querySelector('#viewer');
@@ -75,11 +88,13 @@ function getThreeScene(mv) {
   return sym ? mv[sym] : null;
 }
 
-// Build/update the bone list
+
 function updateBoneList(list) {
   boneListDiv.innerHTML = "";
   list.forEach(bone => {
     const div = document.createElement("div");
+    div.className = "bone-item";
+
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = bone.object.visible;
