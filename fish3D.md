@@ -34,53 +34,98 @@ title: 3D Fish Model
   style="width:100%; height:600px;">
 </model-viewer>
 
+<!-- Controls -->
+<div style="margin: 10px 0;">
+  <input id="search" type="text" placeholder="Search bones..."
+         style="margin-bottom:5px; padding:5px; width:60%;">
+  <div>
+    <button id="show-all">Show All</button>
+    <button id="hide-all">Hide All</button>
+    <a href="{{ '/skull.gltf' | relative_url }}" download
+       style="margin-left:10px;">Download Model</a>
+  </div>
+</div>
+
+<!-- Scrollable list -->
+<div id="bone-list"
+     style="max-height:300px; overflow-y:auto; border:1px solid #ccc; padding:5px;">
+</div>
+
 <script type="module">
 const viewer = document.querySelector('#viewer');
 const boneListDiv = document.getElementById('bone-list');
 const searchBox   = document.getElementById('search');
+const showAllBtn  = document.getElementById('show-all');
+const hideAllBtn  = document.getElementById('hide-all');
 
 let bones = [];
 
-// Get the internal THREE.Scene via symbol (from model-viewer FAQ)
+// Nodes we want to ignore completely
+const IGNORE_NAMES = new Set([
+  "Pivot",
+  "Target",
+  "Layer_0",
+  "Whole_Skull_(all_segments)_Models"
+]);
+
+// Get the internal THREE.Scene via symbol (from model-viewer team FAQ)
 function getThreeScene(mv) {
   const sym = Object.getOwnPropertySymbols(mv)
     .find(s => s.description === 'scene');
   return sym ? mv[sym] : null;
 }
 
+// Build/update the bone list
 function updateBoneList(list) {
   boneListDiv.innerHTML = "";
   list.forEach(bone => {
-    const row = document.createElement("div");
-    const cb  = document.createElement("input");
-    cb.type = "checkbox";
-    cb.checked = true;
-    cb.dataset.name = bone.name;
-    cb.addEventListener("change", (e) => {
-      bone.object.visible = e.target.checked;
-    });
+    const div = document.createElement("div");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = bone.object.visible;
+    checkbox.dataset.name = bone.name;
+    checkbox.addEventListener("change", toggleBone);
+
     const label = document.createElement("label");
     label.textContent = bone.name;
-    row.appendChild(cb);
-    row.appendChild(label);
-    boneListDiv.appendChild(row);
+
+    div.appendChild(checkbox);
+    div.appendChild(label);
+    boneListDiv.appendChild(div);
   });
 }
 
-searchBox.addEventListener("input", () => {
-  const term = searchBox.value.toLowerCase();
-  updateBoneList(bones.filter(b => b.name.toLowerCase().includes(term)));
+// Toggle single bone
+function toggleBone(event) {
+  const boneName = event.target.dataset.name;
+  const checked = event.target.checked;
+  const bone = bones.find(b => b.name === boneName);
+  if (bone) bone.object.visible = checked;
+}
+
+// Show/hide all
+showAllBtn.addEventListener("click", () => {
+  bones.forEach(b => b.object.visible = true);
+  updateBoneList(bones);
+});
+hideAllBtn.addEventListener("click", () => {
+  bones.forEach(b => b.object.visible = false);
+  updateBoneList(bones);
 });
 
-// Robust load: wait for <model-viewer> to finish, then grab the scene via symbol.
+// Search filter
+searchBox.addEventListener("input", () => {
+  const term = searchBox.value.toLowerCase();
+  const filtered = bones.filter(b => b.name.toLowerCase().includes(term));
+  updateBoneList(filtered);
+});
+
+// Collect bones once model is loaded
 async function collectBones() {
   let scene = getThreeScene(viewer);
-  if (!scene) {               // wait in small intervals until scene is ready
-    for (let i = 0; i < 60; i++) {
-      await new Promise(r => setTimeout(r, 100));
-      scene = getThreeScene(viewer);
-      if (scene) break;
-    }
+  for (let i = 0; i < 60 && !scene; i++) {
+    await new Promise(r => setTimeout(r, 100));
+    scene = getThreeScene(viewer);
   }
   if (!scene) {
     console.error("Could not access three.js scene.");
@@ -90,7 +135,9 @@ async function collectBones() {
   bones = [];
   scene.traverse((obj) => {
     if (obj.name && obj.name.trim() !== "" && obj.type !== "Scene") {
-      bones.push({ name: obj.name, object: obj });
+      if (!IGNORE_NAMES.has(obj.name)) {
+        bones.push({ name: obj.name, object: obj });
+      }
     }
   });
 
@@ -99,8 +146,6 @@ async function collectBones() {
 }
 
 viewer.addEventListener('load', collectBones);
-viewer.addEventListener('error', (e) => {
-  console.error('Model failed to load:', e);
-});
 </script>
 {% endraw %}
+
