@@ -10,13 +10,17 @@ title: 3D Fish Model
   <model-viewer id="viewer" 
     src="{{ '/skull.gltf' | relative_url }}" 
     alt="Skull model" 
-    skybox-image="background.jpg"
     camera-controls 
+    camera-orbit="0deg 75deg auto"
+    min-camera-orbit="auto auto auto"
+    max-camera-orbit="auto auto auto"
     auto-rotate 
     crossorigin="anonymous"
-    style="width:100%; height:600px;">
+    style="width:100%; height:600px; background-color: #ccc;">
   </model-viewer>
 </div>
+<!-- skybox-image="background.jpg" -->
+
 
 <!-- Controls -->
 <div style="margin: 10px 0; width: 100%;">
