@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-3
+2
 
 <div id="viewer-wrapper">
   <model-viewer id="viewer" 
@@ -143,3 +143,55 @@ searchBox.addEventListener("input", () => {
   if (!term) {
     updateBoneList(bones);
     return;
+  }
+  const filtered = bones.filter(b => b.name.toLowerCase().includes(term));
+  updateBoneList(filtered);
+});
+
+// Collect bones robustly after model loaded
+async function collectBones() {
+  console.log("collectBones(): trying to access internal scene...");
+  let scene = getThreeScene(viewer);
+
+  // Wait up to ~6 seconds (60 * 100ms) for the internal scene to appear
+  for (let i = 0; i < 60 && !scene; i++) {
+    await new Promise(r => setTimeout(r, 100));
+    scene = getThreeScene(viewer);
+  }
+
+  if (!scene) {
+    console.error("collectBones(): could not access three.js scene. Check console for model-viewer errors and CORS.");
+    return;
+  }
+
+  bones = [];
+  scene.traverse((obj) => {
+    if (!obj) return;
+    if (obj.name && obj.name.trim() !== "" && obj.type !== "Scene") {
+      if (!IGNORE_NAMES.has(obj.name)) {
+        bones.push({ name: obj.name, object: obj });
+      }
+    }
+  });
+
+  console.log("collectBones(): total bones found (after ignore):", bones.length, bones.map(b => b.name));
+  updateBoneList(bones);
+}
+
+// Kick off collection when model fires load (and also try again on model-visibility)
+viewer.addEventListener('load', collectBones);
+viewer.addEventListener('model-visibility', () => {
+  // For robustness, if bones array empty, try collecting
+  if (bones.length === 0) collectBones();
+});
+
+// Small debug helper you can run in console to see DOM counts
+window.__debugBoneUI = () => {
+  console.log("querySelector counts:",
+    "model-viewer:", document.querySelectorAll('model-viewer').length,
+    "search inputs:", document.querySelectorAll('#search').length,
+    "bone-list elements:", document.querySelectorAll('#bone-list').length
+  );
+};
+</script>
+{% endraw %}
