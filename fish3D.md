@@ -31,7 +31,7 @@ title: 3D Fish Model
 
 <!-- Scrollable list container -->
 <div id="bone-list"
-     style="max-height:300px; overflow-y:auto; border:1px solid #ccc; padding:8px; width:60%; margin-top:10px;">
+     style="max-height:100px; overflow-y:auto; border:1px solid #ccc; padding:8px; width:60%; margin-top:10px;">
 </div>
 
 <style>
