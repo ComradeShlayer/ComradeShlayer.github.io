@@ -4,7 +4,6 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-2
 
 <div id="viewer-wrapper">
   <model-viewer id="viewer" 
@@ -14,6 +13,8 @@ title: 3D Fish Model
     camera-orbit="0deg 75deg auto"
     min-camera-orbit="auto auto auto"
     max-camera-orbit="auto auto auto"
+    min-polar-angle="0deg"
+    max-polar-angle="180deg"
     auto-rotate 
     crossorigin="anonymous"
     style="width:100%; height:600px; background-color: #ccc;">
