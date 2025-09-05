@@ -4,7 +4,7 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
-2
+1
 
 <div id="viewer-wrapper">
   <model-viewer id="viewer" 

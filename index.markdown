@@ -3,6 +3,10 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-
-Hi is this where things go?
 ---
+
+<div style="text-align:center; padding: 40px;">
+  <img src="{{ '/assets/background.jpg' | relative_url }}" alt="Front image" style="max-width:80%; height:auto; border-radius:12px;">
+  <h1>Evolutionary Biology</h1>
+  <p>Fish Jaws and Bug Lungs</p>
+</div>
