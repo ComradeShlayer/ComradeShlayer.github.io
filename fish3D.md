@@ -27,7 +27,8 @@ title: 3D Fish Model
 </model-viewer>
 
 <script type="module">
-  import {TrackballControls} from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/TrackballControls.js';
+  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
+  import { TrackballControls } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/TrackballControls.js';
 
   const viewer = document.querySelector('#viewer');
 
