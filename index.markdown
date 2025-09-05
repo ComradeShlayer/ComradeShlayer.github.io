@@ -6,7 +6,7 @@ layout: home
 ---
 
 <div style="text-align:center; padding: 40px;">
-  <img src="{'background.jpg'}" alt="Front image" style="max-width:80%; height:auto; border-radius:12px;">
+  <img src="{{'background.jpg'}}" alt="Front image" style="max-width:80%; height:auto; border-radius:12px;">
   <h1>Evolutionary Biology</h1>
   <p>Fish Jaws and Bug Lungs</p>
 </div>
