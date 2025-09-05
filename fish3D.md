@@ -4,9 +4,10 @@ title: 3D Fish Model
 ---
 
 # 3D Model Viewer
+2
 
 <div id="viewer-wrapper">
-  <!-- <model-viewer id="viewer" 
+  <model-viewer id="viewer" 
     src="{{ '/skull.gltf' | relative_url }}" 
     alt="Skull model" 
     camera-controls 
@@ -14,47 +15,11 @@ title: 3D Fish Model
     min-camera-orbit="auto auto auto"
     max-camera-orbit="auto auto auto"
     min-polar-angle="0deg"
-    max-polar-angle="360deg"
+    max-polar-angle="180deg"
     auto-rotate 
     crossorigin="anonymous"
     style="width:100%; height:600px; background-color: #ccc;">
-  </model-viewer> -->
-  <model-viewer id="viewer"
-  src="{{ '/skull.gltf' | relative_url }}"
-  alt="Skull model"
-  camera-controls
-  style="width:100%; height:600px; background:#ccc;">
-</model-viewer>
-
-<script type="module">
-  import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js';
-  import { TrackballControls } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/controls/TrackballControls.js';
-
-  const viewer = document.querySelector('#viewer');
-
-  viewer.addEventListener('load', () => {
-    
-    const threeRenderer = viewer.renderer.threeRenderer;
-    const threeScene = viewer.scene;
-    const threeCamera = viewer.getCamera(); 
-
-    viewer.removeAttribute('camera-controls');
-
-    const controls = new TrackballControls(threeCamera, viewer);
-    controls.rotateSpeed = 4.0;
-    controls.zoomSpeed = 1.2;
-    controls.panSpeed = 0.8;
-    controls.dynamicDampingFactor = 0.2;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      controls.update();
-      threeRenderer.render(threeScene, threeCamera);
-    }
-    animate();
-  });
-</script>
-
+  </model-viewer>
 </div>
 <!-- skybox-image="background.jpg" -->
 
