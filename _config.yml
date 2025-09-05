@@ -29,7 +29,7 @@ url: "https://ComradeShlayer.github.io" # the base hostname & protocol for your 
 github_username:  ComradeShlayer
 
 # Build settings
-theme: minima
+theme: alembic-jekyll-theme
 plugins:
   - jekyll-feed
 
