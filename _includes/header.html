@@ -4,7 +4,8 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.minima.nav_pages | default: default_paths -%}
     {%- assign page_titles = site.pages | map: 'title' | compact %}
-    <img src="{{ '/assets/images/pippin.png' | relative_url }}" rel="stylesheet" href="assets/css/styles.scss">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <img src="{{ '/assets/images/pippin.png' | relative_url }}" rel="stylesheet" class="site-logo">
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
     
 
