@@ -4,3 +4,39 @@
     vertical-align: middle;
     margin-right: 8px;
   }
+
+  .header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .site-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .site-logo {
+    height: 30px;
+    width: auto;
+    margin-right: 10px;
+  }
+  
+  .site-title {
+    font-size: 1.5em;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .site-nav a {
+    text-decoration: none;
+    color: #0366d6;
+  }
