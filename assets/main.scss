@@ -16,7 +16,7 @@
 
 .site-left {
   display: flex;
-  align-items: center;
+  align-items: row;
 }
 
 .site-logo {
@@ -33,7 +33,7 @@
 
 .site-nav ul {
   list-style: none;
-  display: flex;
+  display: inline;
   gap: 20px;
   margin: 0;
   padding: 0;
