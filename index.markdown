@@ -5,8 +5,8 @@
 layout: home
 ---
 
-<div style="text-align:center; padding: 40px;">
-  <img src="{{'background.jpg'}}" alt="Front image" style="max-width:80%; height:auto; border-radius:12px;">
+<div class="hero-section">
+  <img src="{{ 'background.jpg' | relative_url }}" alt="Front image" class="hero-image">
   <h1>Evolutionary Biology</h1>
   <p>Fish Jaws and Bug Lungs</p>
 </div>
