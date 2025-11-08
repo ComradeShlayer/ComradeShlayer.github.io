@@ -3,9 +3,9 @@ layout: default
 title: Research
 ---
 
-# Millipede Feeding Mechanics
+# *Oxidus gracilis*: First lab tractable myriapod model
 
-## Oxidus gracilis as a New Model Organism
+
 Myriapods (millipedes and centipedes), unlike all other arthropods, insects (beetles, etc.), crustaceans (shrimps, etc.), and chelicerates (spiders, etc.), do not have a single, lab-tractable model. This makes them the least studied group of arthropods in evo-devo. This is unfortunate since myriapods display many fascinating traits such as silk-producing spinnerets, cyanide-based defensive glands, a mode of segmentation that results in hundreds of body segments, and unique metamorphosis of their reproductive structures. In addition, myriapods occupy a phylogenetically important position at the divergence between chelicerates and the rest of the arthropods (myriapods, crustaceans, insects; collectively called the mandibulates) and thus there is much interest in the evolution of their neural patterning, tracheal system, eyes, and in identifying the first stem myriapods.
 
 We are developing the first myriapod lab-tractable model system using the greenhouse millipede *Oxidus gracilis*. Several other myriapod species have been attempted to date. However, none of these are ideal lab animals because they do not survive in lab conditions; they do not breed year-round; and/or they take several years to reach sexual maturity.
