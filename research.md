@@ -3,6 +3,64 @@ layout: default
 title: Research
 ---
 
+### Ongoing Research  
+
+## The evolution of complex traits and major life history transitions 
+
+# Master’s Thesis: The evolution of arthropod trachea during the water-land transition  
+
+Understanding how new body parts arise is one of evolutionary biology’s greatest mysteries. Some fossils show transitional forms, yet many gaps in the record remain, often called missing links. Missing links between similar structures in distantly related animals make it appear as though these structures evolved independently in each group. Insects and millipedes are different lineages that both moved from water to land. Both groups have air breathing tubes called tracheae, but a lack of ‘trachea-like’ structures in their common ancestor has led to the belief that these similar structures must have evolved independently. My research challenges this idea by going beyond the fossils and using modern molecular techniques to uncover their true evolutionary history. I will use In-situ HCR to label tracheal and leg patterning genes in millipede embryos, to uncover to their expression patterns. If the trachea in both animals develop in the same location, using the same genes, they likely evolved from the same ancestral structure. This would suggest that both groups evolved tracheae from the same ancestral gill at different times. This would redefine how we think new animal structures arise, suggesting it is easier for developmental and genetic systems to remodel old structures beyond recognition than to invent new ones.  
+
+Developing a lab-tractable myriapod model  
+
+<!-- photo of Poster?  -->
+
+There are 4 major extant groups within Arthropoda: Chelicerata, Myriapoda, Crustacea and Insecta. Of these groups, Myriapoda (millipedes and centipedes) is the only not to have an established lab tractable model. However, there is keen scientific interest due to their key phylogenetic position between Chelicerates and Pancrustacea (Crustaceans and Insects), and unique traits like cyanide-based defensive glands, distinctive neural patterning, tracheal systems, and extreme take on Arthropoda’s characteristic segmented body plan. I am developing Oxidus gracilis as the first lab-tractable myriapod model with a sequenced and annotated transcriptome, complete lab life cycle, and embryo staging manual. In contrast to other myriapod species examined to date, Oxidus is an ideal model system: it thrives in lab environments; breeds year-round; produces clutches of >200 eggs; has a short generation time of ~4 months; and is readily available worldwide. Pest control is the biggest issue, with nematodes, mold and phoretic mites all posing threats to the health of the animals.  
+
+ 
+
+## Past Projects 
+
+# Undergraduate Thesis: Comparative Skull Anatomy of Adult Zebrafish (Danio rerio) and Functionally Jawless nkx3.2−/− Mutant.” 
+
+The evolution of articulating jaws was a major innovation in vertebrate history, enabling more efficient feeding and expanding ecological opportunities. During my undergrad I researched how jaw joint fixation alters skull development and function using nkx3.2 knockout zebrafish. These “jawless” mutants survive to adulthood, offering a rare opportunity to examine the plastic remodelling that occurs in the absence of an articulating jaw. I found that although nkx3.2-/- mutant phenotype is not atavistic, their skull shape and kinematics resemble Paleozoic jawless vertebrates such as anaspids and thelodonts. This convergence implies that integration and modularity in the vertebrate skull constrain plastic responses in functionally predictable ways. These findings position nkx3.2 mutants as a model for understanding how jaw articulation shapes cranial evolution, and how developmental plasticity may have shaped the jawed vertebrate phenotype before they became genetically fixed.  
+
+The kinematic models created for this project are currently on display at the Canadian Museum of Nature in the new exhibit “Life onto Land: The Devonian”.  
+
+<!-- Include photo?  -->
+
+ 
+
+## Astrobiology  
+
+<!-- Group photo from CIRC?  -->
+
+# Science Lead – Carleton Planetary Robotics Team  
+
+The Carleton Planetary Robotics Team is an engineering design team that builds and develops a Mars rover with the intent of competing in international competitions. As the science lead, I oversaw the overall design of the life detection and environmental analysis capabilities onboard our rover. My other responsibilities include managing the Science Sub team members and creating a welcoming and inclusive environment. I also made it my personal mission to teach engineers about the scientific method, and the philosophy of science. During my tenure in the role, we achieved the highest team score for the science environmental analysis mission at the Canadian International Rover Competition and qualified for the University Rover Challenge. 
+
+ 
+
+# Symmetry Breaking in Snake Embryos: How and Why They Coil 
+
+Snake embryos are often tightly coiled, but the biological basis for this developmental trait remains a puzzle. To understand how and why they coil, we first investigated directions of coiling within and across 39 snake species. In early developmental stages, coiling orientation appears to be nearly fixed right-handed across multiple species. We present evidence that accelerated somitogenesis outpaces gastrointestinal extension at these stages, causing the embryos to coil around the delayed visceral tissues. To allow this, the body axis and the gut are physically separate, where the latter forms a pillar-like structure from the stomach to cloaca. The dextral directional bias in these early embryos is likely passively determined by the left-sided yolk mass. Coiling becomes looser and more inconsistent later in development when the embryos acquire mobility through maturation of axial musculoskeletal tissues and with a sufficiently extended gut. These consilient lines of observations reveal in embryonic coiling a passive process where its initiation and direction are each a response to spatial conditions of snake embryogenesis. As these parameters conflict each other at some developmental stages (e.g., the offset growth curves between gut and body axis), snakes apparently solve some of the many challenges to patterning their startlingly elongate bodies by taking advantage of what could otherwise be discordant features of the embryonic growth. 
+
+ 
+
+I lead a team of 8 international collaborators from Canada, Finland and the United States of America. I also organized the collection of over 400 photographs of snake embryos collected from institutions worldwide. 
+
+ 
+
+ 
+
+# Survey of Spotted Wing Drosophila Populations in Southern Ontario 
+
+Co-op work term at Agriculture and Agri-Food Canada in the Molecular Diagnostics and Biological Control of Invasive Insect Pests in Agriculture lab. My main project was to survey the population distribution of Spotted Wing Drosophila in Southwestern Ontario. I developed the methods used in this survey and created the system for specimen organization and data collection. My contributions to this project are acknowledged in; 
+
+Gariepy, T.D., et al. (2024) Widespread establishment of adventive populations of Leptopilina japonica (Hymenoptera, Figitidae) in North America and development of a multiplex PCR assay to identify key parasitoids of Drosophila suzukii (Diptera, Drosophilidae). NeoBiota 93: 63-90. https://doi.org/10.3897/neobiota.93.121219 
+
+
+<!-- 
 # *Oxidus gracilis*: First lab tractable myriapod model
 
 
@@ -33,7 +91,7 @@ We hope that the juveniles currently in the mite-free cage will reach sexual mat
 
 **Embryo collection and rearing:** Clutches of >200 embryos are laid 1-2cm deep in mulch substrate above. Most clutches are laid on the bottom of the container and can be located by holding the container aloft and looking underneath, otherwise, clutches can be located by gently overturning mulch with a probe.
 
-
+ -->
 
 <!-- # Fish Jaws
 evolution of fish jaws. -->
