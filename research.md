@@ -3,7 +3,7 @@ layout: default
 title: Research
 ---
 
-### Ongoing Research  
+# Ongoing Research  
 
 # Master’s Thesis: The evolution of arthropod trachea during the water-land transition  
 
