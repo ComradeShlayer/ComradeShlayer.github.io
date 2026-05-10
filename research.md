@@ -11,7 +11,7 @@ Understanding how new body parts arise is one of evolutionary biology’s greate
 
 # Developing a lab-tractable myriapod model  
 
-## Arthropods next top model logo  
+<img src="{{ '/assets/images/top model.jpeg' | relative_url }}" >
 
 There are 4 major extant groups within Arthropoda: Chelicerata, Myriapoda, Crustacea and Insecta. Of these groups, Myriapoda (millipedes and centipedes) is the only not to have an established lab tractable model. However, there is keen scientific interest due to their key phylogenetic position between Chelicerates and Pancrustacea (Crustaceans and Insects), and unique traits like cyanide-based defensive glands, distinctive neural patterning, tracheal systems, and extreme take on Arthropoda’s characteristic segmented body plan. I am developing Oxidus gracilis as the first lab-tractable myriapod model with a sequenced and annotated transcriptome, complete lab life cycle, and embryo staging manual. In contrast to other myriapod species examined to date, Oxidus is an ideal model system: 1) it thrives in lab environments; 2) breeds year-round; 3) produces clutches of >200 eggs; 4) has a short generation time of ~4 months; and 5) is readily available worldwide. Pest control is the biggest issue, with nematodes, mold and phoretic mites all posing threats to the health of the animals. I am currently working on publishing the lab rearing protocol.  
 
