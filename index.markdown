@@ -8,5 +8,6 @@ layout: home
 <div class="hero-section">
   <img src="{{ 'background.jpg' | relative_url }}" alt="Front image" class="hero-image">
   <h1>Evolutionary and Developmental Biology</h1>
-  <p>Fish Jaws and Bug Lungs</p>
+  <!-- <p>Fish Jaws and Bug Lungs</p> -->
+  <p>Part-time paleontologist (or at least I play one on TV)</p>
 </div>
