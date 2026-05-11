@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Alexandra Weber
-email: alex.finley.weber@gmail.com
+email: Alexandraweber@cmail.carleton.ca
 description: >- # this means to ignore newlines until "baseurl:"
   Research website for Alexandra Weber, detailing research in evolutionary biology.
 baseurl: "" # the subpath of your site, e.g. /blog
