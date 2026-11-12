@@ -2,7 +2,6 @@
 layout: default
 title: "Why are Snake Embryos Coiled?"
 nav_exclude: true
-parent_nav: publications
 ---
 
 # Why are Snake Embryos Coiled?
